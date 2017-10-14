@@ -66,6 +66,8 @@ namespace DQ3
 
 		private void MenuItemAbout_Click(object sender, RoutedEventArgs e)
 		{
+			AboutWindow dlg = new AboutWindow();
+			dlg.ShowDialog();
 		}
 
 		private void ToolBarFileOpen_Click(object sender, RoutedEventArgs e)
