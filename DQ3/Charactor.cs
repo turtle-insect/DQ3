@@ -14,11 +14,7 @@ namespace DQ3
 		{
 			mAddress = address;
 
-			for (uint i = 0; i < Util.ItemCount; i++)
-			{
-				Items.Add(new CharactorItem(address + 0x45 + i));
-			}
-
+			CreateItem();
 			foreach (var skill in Info.Instance().Skills)
 			{
 				Skills.Add(new Skill(address + 0x39, skill.Value) { Name = skill.Name });
@@ -234,16 +230,36 @@ namespace DQ3
 			}
 		}
 
-		public uint ItemCount
+		private void Item_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
 		{
-			get
+			CharactorItem item = sender as CharactorItem;
+			if (item == null) return;
+			SaveData saveData = SaveData.Instance();
+			uint count = 0;
+			for (uint i = 0; i < Util.ItemCount - 1; i++)
 			{
-				return SaveData.Instance().ReadNumber(mAddress + 0x44, 1);
+				uint address = mAddress + 0x45 + i;
+				uint id = saveData.ReadNumber(address, 1);
+				if(id == 0x00)
+				{
+					saveData.Swap(address, address + 1, 1);
+					id = saveData.ReadNumber(address, 1);
+				}
+				if (id != 0x00) count++;
 			}
+			if (saveData.ReadNumber(mAddress + 0x45 + Util.ItemCount - 1, 1) != 0x00) count++;
+			Util.WriteNumber(mAddress + 0x44, 1, count, 0, 12);
+			CreateItem();
+		}
 
-			set
+		private void CreateItem()
+		{
+			Items.Clear();
+			for (uint i = 0; i < Util.ItemCount; i++)
 			{
-				Util.WriteNumber(mAddress + 0x44, 1, value, 0, 12);
+				CharactorItem item = new CharactorItem(mAddress + 0x45 + i);
+				item.PropertyChanged += Item_PropertyChanged;
+				Items.Add(item);
 			}
 		}
 	}

@@ -18,7 +18,7 @@ namespace DQ3
 			set
 			{
 				if (mFileName == null || mBuffer == null) return;
-				WriteNumber(0x0102, 2, CheckSum());
+				WriteNumber(0x0002, 2, CheckSum());
 				mAdventure = value;
 			}
 		}
@@ -37,7 +37,7 @@ namespace DQ3
 			mFileName = filename;
 			mBuffer = System.IO.File.ReadAllBytes(mFileName);
 
-			if(force || CheckSum() == ReadNumber(0x0102, 2))
+			if(force || CheckSum() == ReadNumber(0x0002, 2))
 			{
 				Backup();
 				return true;
@@ -51,7 +51,7 @@ namespace DQ3
 		public bool Save()
 		{
 			if (mFileName == null || mBuffer == null) return false;
-			WriteNumber(0x0102, 2, CheckSum());
+			WriteNumber(0x0002, 2, CheckSum());
 			System.IO.File.WriteAllBytes(mFileName, mBuffer);
 			return true;
 		}
@@ -195,17 +195,16 @@ namespace DQ3
 		private uint CheckSum()
 		{
 			uint result = 0;
-			uint check = ReadNumber(0x0102, 2);
-			for (uint i = 0; i < Util.BlockSize; i+=2)
+			for (uint i = 0x0004; i < Util.BlockSize; i+=2)
 			{
-				result += ReadNumber(0x0104 + i, 2);
+				result += ReadNumber(i, 2);
 			}
 			return result & 0xFFFF;
 		}
 
 		private uint CalcAddress(uint address)
 		{
-			return address + Util.BlockSize * Adventure;
+			return address + Util.BlockSize * Adventure + 0x100;
 		}
 
 		private void Backup()

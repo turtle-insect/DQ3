@@ -170,25 +170,6 @@
                                 </ComboBox>
                                 <Label Content="個 (上から)"/>
                             </StackPanel>
-                            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
-                                <Label Content="アイテム保持"/>
-                                <ComboBox SelectedIndex="{Binding ElementName=ListBoxParty, Path=SelectedItem.ItemCount}">
-                                    <ComboBoxItem Content="0"/>
-                                    <ComboBoxItem Content="1"/>
-                                    <ComboBoxItem Content="2"/>
-                                    <ComboBoxItem Content="3"/>
-                                    <ComboBoxItem Content="4"/>
-                                    <ComboBoxItem Content="5"/>
-                                    <ComboBoxItem Content="6"/>
-                                    <ComboBoxItem Content="7"/>
-                                    <ComboBoxItem Content="8"/>
-                                    <ComboBoxItem Content="9"/>
-                                    <ComboBoxItem Content="10"/>
-                                    <ComboBoxItem Content="11"/>
-                                    <ComboBoxItem Content="12"/>
-                                </ComboBox>
-                                <Label Content="個"/>
-                            </StackPanel>
                             <ListBox ItemsSource="{Binding ElementName=ListBoxParty, Path=SelectedItem.Items}">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
@@ -212,6 +193,15 @@
                                     <Button Content=" ... " Click="ButtonBagItemChange_Click"/>
                                     <Label Content="{Binding ID, Converter={StaticResource ItemConverter}}"/>
                                 </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </TabItem>
+                <TabItem Header="ルーラ">
+                    <ListBox ItemsSource="{Binding Places}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding Name}" IsChecked="{Binding Leam}"/>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>

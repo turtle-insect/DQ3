@@ -10,6 +10,7 @@ namespace DQ3
 		public List<NameValue> Personalitys { get; private set; } = new List<NameValue>();
 		public List<NameValue> Jobs { get; private set; } = new List<NameValue>();
 		public List<NameValue> Skills { get; private set; } = new List<NameValue>();
+		public List<NameValue> Places { get; private set; } = new List<NameValue>();
 
 		private Info() { }
 
@@ -43,6 +44,7 @@ namespace DQ3
 			AppendList("info\\personality.txt", Personalitys);
 			AppendList("info\\job.txt", Jobs);
 			AppendList("info\\skill.txt", Skills);
+			AppendList("info\\place.txt", Places);
 		}
 
 		private void AppendList(String filename, List<NameValue> items)

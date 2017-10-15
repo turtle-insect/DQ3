@@ -66,6 +66,7 @@
       <DependentUpon>ItemSelectWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="NameValue.cs" />
+    <Compile Include="Place.cs" />
     <Compile Include="SaveData.cs" />
     <Compile Include="SexConverter.cs" />
     <Compile Include="Skill.cs" />

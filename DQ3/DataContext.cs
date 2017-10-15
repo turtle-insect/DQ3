@@ -6,17 +6,23 @@ namespace DQ3
 	{
 		public Info Info { get; set; } = Info.Instance();
 		public ObservableCollection<Charactor> Party { get; set; } = new ObservableCollection<Charactor>();
+		public ObservableCollection<Place> Places { get; set; } = new ObservableCollection<Place>();
 		public Bag Bag { get; set; } = new Bag();
 
 		public DataContext()
 		{
 			SaveData saveData = SaveData.Instance();
-			uint address = 0x0104;
+			uint address = 0x0004;
 			for (uint i = 0; i < Util.MaxParty; i++)
 			{
 				if (saveData.ReadNumber(address, 2) == 0) break;
 				Party.Add(new Charactor(address));
 				address += 0x51;
+			}
+
+			foreach (var place in Info.Instance().Places)
+			{
+				Places.Add(new Place(place.Value) { Name = place.Name });
 			}
 		}
 
@@ -24,12 +30,12 @@ namespace DQ3
 		{
 			get
 			{
-				return SaveData.Instance().ReadNumber(0x0BAA, 1);
+				return SaveData.Instance().ReadNumber(0x0AAA, 1);
 			}
 
 			set
 			{
-				Util.WriteNumber(0x0BAA, 1, value, 0, Util.MaxParty);
+				Util.WriteNumber(0x0AAA, 1, value, 0, Util.MaxParty);
 			}
 		}
 
@@ -37,12 +43,12 @@ namespace DQ3
 		{
 			get
 			{
-				return SaveData.Instance().ReadNumber(0x0BAE, 3);
+				return SaveData.Instance().ReadNumber(0x0AAE, 3);
 			}
 
 			set
 			{
-				Util.WriteNumber(0x0BAE, 3, value, 0, 9999999);
+				Util.WriteNumber(0x0AAE, 3, value, 0, 9999999);
 			}
 		}
 
@@ -50,12 +56,12 @@ namespace DQ3
 		{
 			get
 			{
-				return SaveData.Instance().ReadNumber(0x0BB1, 2);
+				return SaveData.Instance().ReadNumber(0x0AB1, 2);
 			}
 
 			set
 			{
-				Util.WriteNumber(0x0BB1, 2, value, 0, 0xFFFF);
+				Util.WriteNumber(0x0AB1, 2, value, 0, 0xFFFF);
 			}
 		}
 	}
