@@ -51,7 +51,10 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                                 <RowDefinition/>
-                                <RowDefinition Height="11*"/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition Height="8*"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
@@ -63,6 +66,9 @@
                             <TextBox Grid.Row="1"  Grid.Column="1" Text="{Binding BankGold, UpdateSourceTrigger=PropertyChanged}"/>
                             <Label Grid.Row="3" Content="パーティーメンバ数"/>
                             <TextBox Grid.Row="3"  Grid.Column="1" Text="{Binding PartyCount, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Grid.Row="5" Content="乗り物"/>
+                            <Label Grid.Row="6" Content="船"/>
+                            <CheckBox Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding Ship}"/>
                         </Grid>
                     </Grid>
                 </TabItem>

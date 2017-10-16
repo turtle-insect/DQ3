@@ -64,5 +64,18 @@ namespace DQ3
 				Util.WriteNumber(0x0AB1, 2, value, 0, 0xFFFF);
 			}
 		}
+
+		public bool Ship
+		{
+			get
+			{
+				return SaveData.Instance().ReadBit(0x098B, 2);
+			}
+
+			set
+			{
+				SaveData.Instance().WriteBit(0x098B, 2, value);
+			}
+		}
 	}
 }
