@@ -54,7 +54,8 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                                 <RowDefinition/>
-                                <RowDefinition Height="8*"/>
+                                <RowDefinition/>
+                                <RowDefinition Height="7*"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
@@ -69,6 +70,8 @@
                             <Label Grid.Row="5" Content="乗り物"/>
                             <Label Grid.Row="6" Content="船"/>
                             <CheckBox Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding Ship}"/>
+                            <Label Grid.Row="7" Content="ラーミア"/>
+                            <CheckBox Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding Lamia}"/>
                         </Grid>
                     </Grid>
                 </TabItem>

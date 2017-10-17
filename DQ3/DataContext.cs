@@ -77,5 +77,18 @@ namespace DQ3
 				SaveData.Instance().WriteBit(0x098B, 2, value);
 			}
 		}
+
+		public bool Lamia
+		{
+			get
+			{
+				return SaveData.Instance().ReadBit(0x098B, 3);
+			}
+
+			set
+			{
+				SaveData.Instance().WriteBit(0x098B, 3, value);
+			}
+		}
 	}
 }
