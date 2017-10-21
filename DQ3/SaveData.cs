@@ -17,7 +17,6 @@ namespace DQ3
 
 			set
 			{
-				if (mFileName == null || mBuffer == null) return;
 				WriteNumber(0x0002, 2, CheckSum());
 				mAdventure = value;
 			}
