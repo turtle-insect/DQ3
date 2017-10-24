@@ -7,6 +7,7 @@ namespace DQ3
 		public Info Info { get; set; } = Info.Instance();
 		public ObservableCollection<Charactor> Party { get; set; } = new ObservableCollection<Charactor>();
 		public ObservableCollection<Place> Places { get; set; } = new ObservableCollection<Place>();
+		public ObservableCollection<Order> Orders { get; set; } = new ObservableCollection<Order>();
 		public Bag Bag { get; set; } = new Bag();
 
 		public DataContext()
@@ -15,9 +16,13 @@ namespace DQ3
 			uint address = 0x0004;
 			for (uint i = 0; i < Util.MaxParty; i++)
 			{
-				if (saveData.ReadNumber(address, 2) == 0) break;
-				Party.Add(new Charactor(address));
+				if (saveData.ReadNumber(address, 2) != 0)
+				{
+					Party.Add(new Charactor(address));
+				}
 				address += 0x51;
+
+				Orders.Add(new Order(0x074B + i));
 			}
 
 			foreach (var place in Info.Instance().Places)

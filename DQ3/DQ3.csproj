@@ -66,6 +66,9 @@
       <DependentUpon>ItemSelectWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="NameValue.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="OrderChoiceConverter.cs" />
+    <Compile Include="OrderConverter.cs" />
     <Compile Include="Place.cs" />
     <Compile Include="SaveData.cs" />
     <Compile Include="SexConverter.cs" />
