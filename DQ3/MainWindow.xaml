@@ -151,6 +151,12 @@
                             <TextBox Grid.Row="14" Grid.Column="1" Text="{Binding ElementName=ListBoxParty, Path=SelectedItem.Exp, UpdateSourceTrigger=PropertyChanged}"/>
                         </Grid>
                         <ListBox Grid.Column="2" ItemsSource="{Binding ElementName=ListBoxParty, Path=SelectedItem.Skills}">
+                            <ListBox.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="全て選択" Click="MenuItemSkillCheck_Click"/>
+                                    <MenuItem Header="全て非選択" Click="MenuItemSkillUnCheck_Click"/>
+                                </ContextMenu>
+                            </ListBox.ContextMenu>
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <CheckBox Content="{Binding Name}" IsChecked="{Binding Leam}"/>

@@ -1,8 +1,9 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace DQ3
 {
-	class Skill
+	class Skill : INotifyPropertyChanged
 	{
 		private readonly uint mAddress;
 		private readonly uint mID;
@@ -24,7 +25,10 @@ namespace DQ3
 			set
 			{
 				SaveData.Instance().WriteBit(mAddress + mID / 8, mID % 8, value);
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Leam"));
 			}
 		}
+
+		public event PropertyChangedEventHandler PropertyChanged;
 	}
 }

@@ -70,6 +70,26 @@ namespace DQ3
 			dlg.ShowDialog();
 		}
 
+		private void MenuItemSkillCheck_Click(object sender, RoutedEventArgs e)
+		{
+			Charactor ch = ListBoxParty.SelectedItem as Charactor;
+			if (ch == null) return;
+			foreach (var skill in ch.Skills)
+			{
+				skill.Leam = true;
+			}
+		}
+
+		private void MenuItemSkillUnCheck_Click(object sender, RoutedEventArgs e)
+		{
+			Charactor ch = ListBoxParty.SelectedItem as Charactor;
+			if (ch == null) return;
+			foreach (var skill in ch.Skills)
+			{
+				skill.Leam = false;
+			}
+		}
+
 		private void ToolBarFileOpen_Click(object sender, RoutedEventArgs e)
 		{
 			Load(false);
