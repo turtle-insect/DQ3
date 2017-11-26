@@ -55,7 +55,11 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                                 <RowDefinition/>
-                                <RowDefinition Height="9*"/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition Height="5*"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
@@ -70,6 +74,11 @@
                             <CheckBox Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding Ship}"/>
                             <Label Grid.Row="5" Content="ラーミア"/>
                             <CheckBox Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding Lamia}"/>
+                            <Label Grid.Row="7" Content="ボス撃破"/>
+                            <Label Grid.Row="8" Content="バラモス撃破"/>
+                            <CheckBox Grid.Row="8" Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding Baramos}"/>
+                            <Label Grid.Row="9" Content="ゾーマ撃破"/>
+                            <CheckBox Grid.Row="9" Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding Zoma}"/>
                         </Grid>
                     </Grid>
                 </TabItem>

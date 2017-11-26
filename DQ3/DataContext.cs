@@ -95,5 +95,31 @@ namespace DQ3
 				SaveData.Instance().WriteBit(0x098B, 3, value);
 			}
 		}
+
+		public bool Baramos
+		{
+			get
+			{
+				return SaveData.Instance().ReadBit(0x0992, 2);
+			}
+
+			set
+			{
+				SaveData.Instance().WriteBit(0x0992, 2, value);
+			}
+		}
+
+		public bool Zoma
+		{
+			get
+			{
+				return SaveData.Instance().ReadBit(0x0993, 2);
+			}
+
+			set
+			{
+				SaveData.Instance().WriteBit(0x0993, 2, value);
+			}
+		}
 	}
 }
