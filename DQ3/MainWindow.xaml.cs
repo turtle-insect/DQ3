@@ -90,6 +90,24 @@ namespace DQ3
 			}
 		}
 
+		private void MenuItemPlaceCheck_Click(object sender, RoutedEventArgs e)
+		{
+			foreach (var item in ListBoxPlace.Items)
+			{
+				Place place = item as Place;
+				if (place != null) place.Leam = true;
+			}
+		}
+
+		private void MenuItemPlaceUnCheck_Click(object sender, RoutedEventArgs e)
+		{
+			foreach (var item in ListBoxPlace.Items)
+			{
+				Place place = item as Place;
+				if (place != null) place.Leam = false;
+			}
+		}
+
 		private void ToolBarFileOpen_Click(object sender, RoutedEventArgs e)
 		{
 			Load(false);
