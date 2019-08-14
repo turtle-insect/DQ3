@@ -43,7 +43,7 @@ namespace DQ3
 
 			set
 			{
-				Util.WriteNumber(mAddress + 0x02, 3, value, 0, 9999999);
+				Util.WriteNumber(mAddress + 0x02, 3, value, 0, 16777215);
 			}
 		}
 
