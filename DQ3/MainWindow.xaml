@@ -59,7 +59,9 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                                 <RowDefinition/>
-                                <RowDefinition Height="5*"/>
+								<RowDefinition/>
+								<RowDefinition/>
+                                <RowDefinition Height="3*"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
@@ -79,7 +81,9 @@
                             <CheckBox Grid.Row="8" Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding Baramos}"/>
                             <Label Grid.Row="9" Content="ゾーマ撃破"/>
                             <CheckBox Grid.Row="9" Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding Zoma}"/>
-                        </Grid>
+							<Label Grid.Row="11" Content="まことの名"/>
+							<TextBox Grid.Row="11" Grid.Column="1" Text="{Binding PlayerName, UpdateSourceTrigger=PropertyChanged}"/>
+						</Grid>
                     </Grid>
                 </TabItem>
                 <TabItem Header="人物">

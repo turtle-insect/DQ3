@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 
 namespace DQ3
 {
@@ -119,6 +120,18 @@ namespace DQ3
 			set
 			{
 				SaveData.Instance().WriteBit(0x0993, 2, value);
+			}
+		}
+
+		public String PlayerName
+		{
+			get
+			{
+				return SaveData.Instance().ReadUTF8(0x0AD6, 12);
+			}
+			set
+			{
+				SaveData.Instance().WriteUTF8(0x0AD6, 12, value);
 			}
 		}
 	}
