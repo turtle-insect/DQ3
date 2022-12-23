@@ -61,7 +61,9 @@
                                 <RowDefinition/>
 								<RowDefinition/>
 								<RowDefinition/>
-                                <RowDefinition Height="3*"/>
+								<RowDefinition/>
+								<RowDefinition/>
+								<RowDefinition/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
@@ -83,6 +85,10 @@
                             <CheckBox Grid.Row="9" Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding Zoma}"/>
 							<Label Grid.Row="11" Content="まことの名"/>
 							<TextBox Grid.Row="11" Grid.Column="1" Text="{Binding PlayerName, UpdateSourceTrigger=PropertyChanged}"/>
+							<Label Grid.Row="12" Content="誕生月"/>
+							<TextBox Grid.Row="12" Grid.Column="1" Text="{Binding BirthMonth, UpdateSourceTrigger=PropertyChanged}"/>
+							<Label Grid.Row="13" Content="誕生日"/>
+							<TextBox Grid.Row="13" Grid.Column="1" Text="{Binding BirthDay, UpdateSourceTrigger=PropertyChanged}"/>
 						</Grid>
                     </Grid>
                 </TabItem>

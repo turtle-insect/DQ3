@@ -134,5 +134,31 @@ namespace DQ3
 				SaveData.Instance().WriteUTF8(0x0AD6, 12, value);
 			}
 		}
+
+		public uint BirthDay
+		{
+			get
+			{
+				return SaveData.Instance().ReadNumber(0x0AB4, 1);
+			}
+
+			set
+			{
+				Util.WriteNumber(0x0AB4, 1, value, 1, 31);
+			}
+		}
+
+		public uint BirthMonth
+		{
+			get
+			{
+				return SaveData.Instance().ReadNumber(0x0AB5, 1);
+			}
+
+			set
+			{
+				Util.WriteNumber(0x0AB5, 1, value, 1, 12);
+			}
+		}
 	}
 }
